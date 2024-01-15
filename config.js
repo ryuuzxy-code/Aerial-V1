@@ -10,7 +10,7 @@ global.webkey = "https://api.yanzbotz.my.id/"
 global.packname = 'Created By'
 global.author = 'Ryuu'
 global.offline = true
-global.token = "6798728669:AAHO_QDNUp6hUOeDjenOltr_g80LIApqYnw" // token bot telegram 
+global.token = "" // token bot telegram 
 
 global.thumb = fs.readFileSync('./media/menu.jpg')
 global.link = 'https://github.com/Ryuuzxy-code'
