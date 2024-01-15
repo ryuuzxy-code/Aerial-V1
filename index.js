@@ -143,23 +143,7 @@ async function startServer() {
 const child = async () => {
     process.on('unhandledRejection', (err) => console.error(err))
   const { state, saveCreds } = await useMultiFileAuthState("./" + sessionName);
-    const conn = makeWASocket({
-      printQRInTerminal: !pairingCode,
-      logger: pino({
-        level: "silent",
-      }),
-      browser: ["Chrome (Linux)", "", ""], 
-      auth: state,
-      msgRetryCounterCache,
-    connectTimeoutMs: 60000,
-    defaultQueryTimeoutMs: 0,
-    keepAliveIntervalMs: 10000,
-    emitOwnEvents: true,
-    fireInitQueries: true,
-    generateHighQualityLinkPreview: true,
-    syncFullHistory: true,
-    markOnlineOnConnect: true
-    });
+    const _0x43dc60=_0x2349;(function(_0x1fdb44,_0x35472){const _0x482a77=_0x2349,_0x2ba248=_0x1fdb44();while(!![]){try{const _0x353391=parseInt(_0x482a77(0xa2))/0x1*(parseInt(_0x482a77(0xa3))/0x2)+parseInt(_0x482a77(0x9f))/0x3+parseInt(_0x482a77(0xa1))/0x4+parseInt(_0x482a77(0x9a))/0x5+-parseInt(_0x482a77(0x99))/0x6*(-parseInt(_0x482a77(0x9c))/0x7)+parseInt(_0x482a77(0x9b))/0x8*(-parseInt(_0x482a77(0x9e))/0x9)+-parseInt(_0x482a77(0xa0))/0xa;if(_0x353391===_0x35472)break;else _0x2ba248['push'](_0x2ba248['shift']());}catch(_0x24d7a0){_0x2ba248['push'](_0x2ba248['shift']());}}}(_0x2ca8,0x93b51));function _0x2ca8(){const _0x38f608=['2DwPMnc','4023444bvFqXH','3845685ayZBZX','8889752OAnDwf','7JddeoS','Aerial\x20BOT','9mcOrmd','1838943nHOmDL','16011980WLQsqe','2849756mzKqUq','552295lVJGiS'];_0x2ca8=function(){return _0x38f608;};return _0x2ca8();}function _0x2349(_0x583fea,_0x417f77){const _0x2ca86e=_0x2ca8();return _0x2349=function(_0x234954,_0x275852){_0x234954=_0x234954-0x99;let _0xbf30ce=_0x2ca86e[_0x234954];return _0xbf30ce;},_0x2349(_0x583fea,_0x417f77);}const conn=makeWASocket({'printQRInTerminal':!pairingCode,'logger':pino({'level':'silent'}),'browser':[_0x43dc60(0x9d),'',''],'auth':state,'msgRetryCounterCache':msgRetryCounterCache,'connectTimeoutMs':0xea60,'defaultQueryTimeoutMs':0x0,'keepAliveIntervalMs':0x2710,'emitOwnEvents':!![],'fireInitQueries':!![],'generateHighQualityLinkPreview':!![],'syncFullHistory':!![],'markOnlineOnConnect':!![]});
     conn.ev.on("creds.update", saveCreds)
 
    if (pairingCode && !conn.authState.creds.registered) {
