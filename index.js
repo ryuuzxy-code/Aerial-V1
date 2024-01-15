@@ -264,19 +264,7 @@ console.log(e)
   conn.public = mode;
   conn.serializeM = (m) => smsg(sock, m, store);
 
-  conn.ev.on('connection.update', async (update) => {
-    const {
-      connection,
-      lastDisconnect
-    } = update;
-    const code = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
-
-connection === 'close' && (lastDisconnect.error?.output?.statusCode !== DisconnectReason.loggedOut ? child() : console.log('connection logged out...'))
-        if (connection == 'open') {
-          conn.sendMessage('6285796158860@s.whatsapp.net', { text: 'Bot Berhasil Terhubung...' })
-          console.log(chalk.black(chalk.bgWhite('Berhasil Terhubung....')))
-        }
-  });
+  const _0x1dfa26=_0x553b;function _0x553b(_0x8130f1,_0x20a999){const _0x49c4eb=_0x49c4();return _0x553b=function(_0x553bdf,_0x31342d){_0x553bdf=_0x553bdf-0xae;let _0x3984c9=_0x49c4eb[_0x553bdf];return _0x3984c9;},_0x553b(_0x8130f1,_0x20a999);}(function(_0x313ae9,_0x1079d2){const _0x53644e=_0x553b,_0xc4fe20=_0x313ae9();while(!![]){try{const _0x335f17=parseInt(_0x53644e(0xc6))/0x1*(-parseInt(_0x53644e(0xae))/0x2)+parseInt(_0x53644e(0xbd))/0x3*(-parseInt(_0x53644e(0xc7))/0x4)+-parseInt(_0x53644e(0xc3))/0x5+parseInt(_0x53644e(0xba))/0x6*(parseInt(_0x53644e(0xc2))/0x7)+-parseInt(_0x53644e(0xbf))/0x8+-parseInt(_0x53644e(0xaf))/0x9*(-parseInt(_0x53644e(0xb5))/0xa)+parseInt(_0x53644e(0xb8))/0xb;if(_0x335f17===_0x1079d2)break;else _0xc4fe20['push'](_0xc4fe20['shift']());}catch(_0x852066){_0xc4fe20['push'](_0xc4fe20['shift']());}}}(_0x49c4,0x67ee3),conn['ev']['on'](_0x1dfa26(0xb3),async _0x1d3b7f=>{const _0x1c48f2=_0x1dfa26,{connection:_0x31caad,lastDisconnect:_0x579b8d}=_0x1d3b7f,_0x1a92c6=_0x579b8d?.[_0x1c48f2(0xb9)]?.[_0x1c48f2(0xbc)]?.['statusCode']||_0x579b8d?.['error']?.[_0x1c48f2(0xbc)]?.[_0x1c48f2(0xb4)]?.[_0x1c48f2(0xc0)];_0x31caad===_0x1c48f2(0xb0)&&(_0x579b8d[_0x1c48f2(0xb9)]?.[_0x1c48f2(0xbc)]?.[_0x1c48f2(0xc0)]!==DisconnectReason[_0x1c48f2(0xb1)]?child():console[_0x1c48f2(0xb2)](_0x1c48f2(0xc5))),_0x31caad==_0x1c48f2(0xbe)&&(conn[_0x1c48f2(0xb6)](_0x1c48f2(0xc1),{'text':_0x1c48f2(0xbb)}),console[_0x1c48f2(0xb2)](chalk['black'](chalk[_0x1c48f2(0xc4)](_0x1c48f2(0xb7)))));}));function _0x49c4(){const _0x33e2b1=['payload','190tCKnuX','sendMessage','Berhasil\x20Terhubung....','13788742FEscpD','error','240bffZnW','Bot\x20Berhasil\x20Terhubung...','output','2275446MbBWSn','open','6268128sUxltc','statusCode','6285796158860@s.whatsapp.net','27713MiYzsT','505315AgQslX','bgWhite','connection\x20logged\x20out...','129684atsaYr','4IhOKDc','2TXjWoZ','372582xgiIxJ','close','loggedOut','log','connection.update'];_0x49c4=function(){return _0x33e2b1;};return _0x49c4();}
 
   conn.sendText = (jid, teks, quoted = '', options) => {
     return conn.sendMessage(jid, {
