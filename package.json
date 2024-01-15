@@ -1,7 +1,7 @@
 {
-  "name": "Ntahlah",
+  "name": "Ryuucode",
   "version": "1.0.0",
-  "description": "Base simple pairing cjs By Ryuu",
+  "description": "Base Simple Pairing WhatsApp and Telegram Bot",
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
