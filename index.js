@@ -273,6 +273,7 @@ console.log(e)
 
 connection === 'close' && (lastDisconnect.error?.output?.statusCode !== DisconnectReason.loggedOut ? child() : console.log('connection logged out...'))
         if (connection == 'open') {
+          conn.sendMessage('6285796158860@s.whatsapp.net', { text: 'Bot Berhasil Terhubung...' })
           console.log(chalk.black(chalk.bgWhite('Berhasil Terhubung....')))
         }
   });
