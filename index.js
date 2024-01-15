@@ -345,6 +345,3 @@ connection === 'close' && (lastDisconnect.error?.output?.statusCode !== Disconne
 
 
 startServer();
-
-process.once('SIGINT', () => bot.stop('SIGINT'))
-process.once('SIGTERM', () => bot.stop('SIGTERM'))
