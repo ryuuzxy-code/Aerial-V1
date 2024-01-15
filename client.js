@@ -10,6 +10,10 @@ prepareWAMessageMedia,
 areJidsSameUser,
 getContentType
 } = require('@whiskeysockets/baileys');
+const {
+Telegraf,
+Context
+} = require('telegraf');
 const bot = new Telegraf(token)
 const axios = require('axios');
 const toMs = require('ms');
@@ -193,14 +197,7 @@ return;
 }
 
 switch (command) {
-
-case 'meki': {
-m.reply('hai beb')
-}
-break
-
 case 'status': {
-if (!itsMe) return
 m.reply(`乂 *STATUS - SERVER*
 
 - Hostname: ${os.hostname()}
@@ -219,14 +216,12 @@ m.reply(`乂 *STATUS - SERVER*
 }
 break
 case 'get': {
-if (!itsMe) return
 if (!q) return Func.newReply(mess.query)
 if (!isUrl) return Func.newReply('Enter the link where you want to download the media...')
 conn.sendFileUrl(m.chat, q)
 }
 break
 case 'hdtag':{
-if (!itsMe) return
 let mem = []
 groupMembers.map( i => mem.push(i.id))
 conn.sendMessage(m.chat, { text: q ? q : '', mentions: mem})
@@ -245,12 +240,10 @@ Func.newReply('Debug is turned off!')
 }
 break
 case 'tes': {
-if (!itsMe) return
 Func.newReply('The bot has run...');
 }
 break;  
 case 'tiktok': case 'ttnowm': case 'tiktoknowm': case 'tt': {
-if (!itsMe) return
 if (!q) return Func.newReply(mess.query)
 if (!isUrl(q)) return Func.newReply('URL invalid!')
 reaction('⏳')
@@ -261,7 +254,6 @@ conn.sendMessage(m.chat, { video: { url: data.result.server1.url }, caption: dat
 break;
 case 'bard':
 case 'gpt3': 
-if (!itsMe) return
 try {
 if (!q) return reply('Question?')
 reaction('⏳')
@@ -273,7 +265,6 @@ m.reply(mess.error)
 }
 break;
 case 'ai':
-if (!itsMe) return 
 try {
 if (!q) return reply('Question?')
 reaction('⏳')
@@ -299,7 +290,6 @@ quoted: m
 }
 break
 case 'menu': {
-if (!itsMe) return
 let teks = `Hi ${pushName || 'Kak!'} ${ucapanWaktu}
 
 乂 *INFORMATION*
