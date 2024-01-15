@@ -180,6 +180,25 @@ m.reply(tkss)
 }
 }
 
+async function newReply(teks) {
+const po = {
+contextInfo: {
+mentionedJid: [m.sender],
+externalAdReply: {
+showAdAttribution: true,
+title: 'AERIAL - BOT',
+body: time,
+previewType: "PHOTO",
+thumbnail: global.thumb,
+sourceUrl: global.link
+}
+},
+text: teks
+};
+return conn.sendMessage(m.chat, po, {
+quoted: m
+});
+};
 //Mode Public/Self
 if (!mode) {
 if (!m.key.fromMe) return;
@@ -198,6 +217,7 @@ return;
 
 switch (command) {
 case 'status': {
+if (!itsMe) return
 m.reply(`乂 *STATUS - SERVER*
 
 - Hostname: ${os.hostname()}
@@ -205,23 +225,25 @@ m.reply(`乂 *STATUS - SERVER*
 - Type: ${os.type}
 - OS: ${os.version()}/${os.release()}
 - Arch: ${os.arch()}
-- RAM: ${formatSize(os.freemem())} / ${formatSize(os.totalmem())}
+- RAM: ${Func.formatSize(os.freemem())} / ${Func.formatSize(os.totalmem())}
 
 - Uptime OS
-  ${runtime(os.uptime())}
+  ${Func.runtime(os.uptime())}
 
 - Runtime Bot
-  ${runtime(process.uptime())}
+  ${Func.runtime(process.uptime())}
 `)
 }
 break
 case 'get': {
-if (!q) return Func.newReply(mess.query)
-if (!isUrl) return Func.newReply('Enter the link where you want to download the media...')
+if (!itsMe) return
+if (!q) return newReply(mess.query)
+if (!isUrl) return newReply('Enter the link where you want to download the media...')
 conn.sendFileUrl(m.chat, q)
 }
 break
 case 'hdtag':{
+if (!itsMe) return
 let mem = []
 groupMembers.map( i => mem.push(i.id))
 conn.sendMessage(m.chat, { text: q ? q : '', mentions: mem})
@@ -230,22 +252,22 @@ break
 case 'offline':{
 if (!itsMe) return
 global.offline = true
-Func.newReply('Bot is now debuging...')
+newReply('Bot is now debuging...')
 }
 break
 case 'online':{
 if (!itsMe) return
 global.offline = false
-Func.newReply('Debug is turned off!')
+newReply('Debug is turned off!')
 }
 break
 case 'tes': {
-Func.newReply('The bot has run...');
+newReply('The bot has run...');
 }
 break;  
 case 'tiktok': case 'ttnowm': case 'tiktoknowm': case 'tt': {
-if (!q) return Func.newReply(mess.query)
-if (!isUrl(q)) return Func.newReply('URL invalid!')
+if (!q) return newReply(mess.query)
+if (!isUrl(q)) return newReply('URL invalid!')
 reaction('⏳')
 fetchJson(global.webkey + 'api/downloader/snaptik?url=' + q + `&apiKey=` + global.apikey).then( data => {
 conn.sendMessage(m.chat, { video: { url: data.result.server1.url }, caption: data.result.caption }, { quoted: m })
@@ -276,7 +298,6 @@ m.reply(mess.error)
 }
 break;
 case 'backup': {
-if (!itsMe) return
 reaction('⏳')
 exec('zip backup.zip *')
 let malas = await fs.readFileSync('./backup.zip')
@@ -290,6 +311,7 @@ quoted: m
 }
 break
 case 'menu': {
+if (!itsMe) return
 let teks = `Hi ${pushName || 'Kak!'} ${ucapanWaktu}
 
 乂 *INFORMATION*
