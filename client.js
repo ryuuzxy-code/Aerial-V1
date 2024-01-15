@@ -10,11 +10,6 @@ prepareWAMessageMedia,
 areJidsSameUser,
 getContentType
 } = require('@whiskeysockets/baileys');
-const {
-Telegraf,
-Context
-} = require('telegraf');
-const bot = new Telegraf(token)
 const axios = require('axios');
 const toMs = require('ms');
 const os = require('os');
