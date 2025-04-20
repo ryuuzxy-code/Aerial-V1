@@ -92,19 +92,6 @@ if (waktu < "03:00:00") {
 const more = String.fromCharCode(8206)
 const readmore = more.repeat(4001)
 
-const ftextt = {
- key: {
-fromMe: false, 
-participant: `0@s.whatsapp.net`, 
-...(m.chat ? { 
-  remoteJid: "status@broadcast" 
-} : {})}, 
-message: { "extendedTextMessage": {
-  "text":`*AERIAL - BOT*`, 
-  "title": `${ucapanWaktu}`, 
-  'jpegThumbnail': await Func.reSize('./media/menu.jpg', 100, 100)}
-}
- }
 
 if (body.startsWith('$')) {
 if (!itsMe) return 
@@ -175,25 +162,6 @@ m.reply(tkss)
 }
 }
 
-async function newReply(teks) {
-const po = {
-contextInfo: {
-mentionedJid: [m.sender],
-externalAdReply: {
-showAdAttribution: true,
-title: 'AERIAL - BOT',
-body: time,
-previewType: "PHOTO",
-thumbnail: global.thumb,
-sourceUrl: global.link
-}
-},
-text: teks
-};
-return conn.sendMessage(m.chat, po, {
-quoted: m
-});
-};
 //Mode Public/Self
 if (!mode) {
 if (!m.key.fromMe) return;
